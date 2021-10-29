@@ -6,11 +6,8 @@ from django.contrib import admin
 from urllib.parse import urlparse
 
 urlpatterns = [
-    path("auth/", include("animelister.account.urls")),
-    path("auth/", include("djoser.urls")),
-    path("auth/", include("djoser.urls.authtoken")),
+    path("accounts/", include("animelister.user.urls")),
     path("admin/", admin.site.urls),
-    path("social/", include("social_django.urls", namespace="social")),
     path("", include("animelister.home.urls")),
 ]
 

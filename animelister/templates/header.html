@@ -1,6 +1,11 @@
 <header>
   <nav>
-    <a href=""></a>
+    <a href="/">logo</a>
+    {% if user.is_authenticated %}
+    <a href="{% url "account_logout" %}"> logout</a>
+    <a href="{% url "dashboard" %}"> dashboard </a>
+    {% else %}
+    <a href="{% url "account_login" %}"> login</a>
+    {% endif %}
   </nav>
-  <p>Insert header content here</p>
 </header>

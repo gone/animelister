@@ -1638,6 +1638,70 @@ __metadata:
   languageName: node
   linkType: hard
 
+"animelister@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "animelister@workspace:."
+  dependencies:
+    "@babel/core": ^7.14.0
+    "@babel/runtime": ^7.14.0
+    "@date-io/date-fns": ^2.8.0
+    "@material-ui/core": ^4.11.0
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/lab": ^4.0.0-alpha.58
+    "@sentry/nextjs": ^6.8.0
+    "@testing-library/jest-dom": ^5.11.1
+    "@testing-library/react": ^10.4.7
+    "@wojtekmaj/enzyme-adapter-react-17": ^0.6.1
+    axios: ^0.21.1
+    axios-case-converter: ^0.7.0
+    babel-eslint: ^10.1.0
+    babel-jest: ^26.1.0
+    clsx: ^1.1.1
+    constate: ^3.2.0
+    cypress: ^7.2.0
+    dotenv: ^8.2.0
+    enzyme: ^3.11.0
+    enzyme-to-json: ^3.5.0
+    eslint: ^7.5.0
+    eslint-config-airbnb: ^18.2.0
+    eslint-config-prettier: ^6.11.0
+    eslint-import-resolver-node: ^0.3.4
+    eslint-plugin-import: ^2.22.1
+    eslint-plugin-jest-dom: ^3.8.1
+    eslint-plugin-jsx-a11y: ^6.3.1
+    eslint-plugin-prettier: ^3.1.4
+    eslint-plugin-react: ^7.20.4
+    eslint-plugin-react-hooks: ^4.2.0
+    formik: ^2.1.5
+    formik-material-ui: ^3.0.1
+    formik-material-ui-lab: ^0.0.8
+    husky: ^6.0.0
+    identity-obj-proxy: ^3.0.0
+    import: ^0.0.6
+    jest: ^26.1.0
+    jest-junit: ^11.1.0
+    jest-watch-typeahead: ^0.6.0
+    lint-staged: ^10.2.11
+    lodash: ^4.17.20
+    material-ui-popup-state: ^1.6.1
+    miragejs: ^0.1.40
+    next: ^10.2.0
+    next-build-id: ^3.0.0
+    notistack: ^1.0.6
+    nprogress: ^0.2.0
+    pinst: ^2.0.0
+    prettier: ^2.3.2
+    prop-types: ^15.7.2
+    qs: ^6.9.4
+    react: ^17.0.2
+    react-dom: ^17.0.2
+    react-test-renderer: ^17.0.2
+    swr: ^0.4.2
+    tiny-warning: ^1.0.3
+    yup: ^0.28.3
+  languageName: unknown
+  linkType: soft
+
 "anser@npm:1.4.9":
   version: 1.4.9
   resolution: "anser@npm:1.4.9"
@@ -8458,70 +8522,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"animelister@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "animelister@workspace:."
-  dependencies:
-    "@babel/core": ^7.14.0
-    "@babel/runtime": ^7.14.0
-    "@date-io/date-fns": ^2.8.0
-    "@material-ui/core": ^4.11.0
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/lab": ^4.0.0-alpha.58
-    "@sentry/nextjs": ^6.8.0
-    "@testing-library/jest-dom": ^5.11.1
-    "@testing-library/react": ^10.4.7
-    "@wojtekmaj/enzyme-adapter-react-17": ^0.6.1
-    axios: ^0.21.1
-    axios-case-converter: ^0.7.0
-    babel-eslint: ^10.1.0
-    babel-jest: ^26.1.0
-    clsx: ^1.1.1
-    constate: ^3.2.0
-    cypress: ^7.2.0
-    dotenv: ^8.2.0
-    enzyme: ^3.11.0
-    enzyme-to-json: ^3.5.0
-    eslint: ^7.5.0
-    eslint-config-airbnb: ^18.2.0
-    eslint-config-prettier: ^6.11.0
-    eslint-import-resolver-node: ^0.3.4
-    eslint-plugin-import: ^2.22.1
-    eslint-plugin-jest-dom: ^3.8.1
-    eslint-plugin-jsx-a11y: ^6.3.1
-    eslint-plugin-prettier: ^3.1.4
-    eslint-plugin-react: ^7.20.4
-    eslint-plugin-react-hooks: ^4.2.0
-    formik: ^2.1.5
-    formik-material-ui: ^3.0.1
-    formik-material-ui-lab: ^0.0.8
-    husky: ^6.0.0
-    identity-obj-proxy: ^3.0.0
-    import: ^0.0.6
-    jest: ^26.1.0
-    jest-junit: ^11.1.0
-    jest-watch-typeahead: ^0.6.0
-    lint-staged: ^10.2.11
-    lodash: ^4.17.20
-    material-ui-popup-state: ^1.6.1
-    miragejs: ^0.1.40
-    next: ^10.2.0
-    next-build-id: ^3.0.0
-    notistack: ^1.0.6
-    nprogress: ^0.2.0
-    pinst: ^2.0.0
-    prettier: ^2.0.5
-    prop-types: ^15.7.2
-    qs: ^6.9.4
-    react: ^17.0.2
-    react-dom: ^17.0.2
-    react-test-renderer: ^17.0.2
-    swr: ^0.4.2
-    tiny-warning: ^1.0.3
-    yup: ^0.28.3
-  languageName: unknown
-  linkType: soft
-
 "pend@npm:~1.2.0":
   version: 1.2.0
   resolution: "pend@npm:1.2.0"
@@ -8671,12 +8671,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.0.5":
-  version: 2.2.1
-  resolution: "prettier@npm:2.2.1"
+"prettier@npm:^2.3.2":
+  version: 2.4.1
+  resolution: "prettier@npm:2.4.1"
   bin:
     prettier: bin-prettier.js
-  checksum: 92c6c9f4b87eba1f28466edee57dd18c80d00b858edda77d46d1950d20e6e302b68ee255fc91133ba931e63c4577b5ae30da194d9626a8f3c0177778b91bf056
+  checksum: d72ebe33441651cdb334d05d8d180bedbb6f8ca9db47163719b9763f3f471d27b9dc86b9f2c9383773681ff836eb5951acd1809871077c9313609f7b7e05554e
   languageName: node
   linkType: hard
 

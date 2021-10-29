@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}
+Lightmatter Base Install
+{% endblock title %}
+
+
+{% block content %}
+  <section class="section" >
+  <h1 class="title">{{ anime.name }}</h1>
+  <p class="content">{{ anime.description }}</p>
+  {% include "home/partials/user_rating_form.html" with form=form anime=anime %}
+  </section>
+{% endblock content %}

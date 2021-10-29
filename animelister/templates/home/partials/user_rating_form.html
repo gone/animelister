@@ -1,0 +1,29 @@
+<form hx-post={% url "rate-anime" slug=anime.slug %} id="anime-rate-form" hx-swap="outerHTML">
+  {{form.anime.as_hidden}}
+  {{form.user.as_hidden}}
+
+  <div class="field">
+    <label class="label">{{form.rating.label}}</label>
+    <div class="control" >
+      {{form.rating}}
+    </div>
+    {% if not form.rating.errors %}
+      <p class="help">{{form.rating.help_text}}</p>
+    {% else %}
+      <div class="help is-danger">{{form.rating.errors}}</div>
+    {% endif %}
+  </div>
+  <div class="field is-grouped">
+    <div class="control">
+      <input type="submit" value="Add" class="button">
+    </div>
+
+    {% if userrating.id %}
+      <div class="control">
+        <button hx-delete="{% url "rate-anime" slug=anime.slug %}" hx-trigger="click" hx-swap="outerHTML" hx-target="#anime-rate-form" value="remove from list" class="button is-warning">
+          Remove from list
+        </button>
+      </div>
+    {% endif %}
+  </div>
+</form>

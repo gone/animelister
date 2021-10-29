@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}
+Welcome to anime lister
+{% endblock title %}
+
+
+{% block content %}
+  {% for anime in animes %}
+    {{ anime }}
+  {% endfor %}
+{% endblock content %}

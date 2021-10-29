@@ -80,19 +80,6 @@
     "tiny-warning": "^1.0.3",
     "yup": "^0.28.3"
   },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,md,css,scss}": [
-      "yarn prettier --config .prettierrc.json --write"
-    ],
-    "*.{js,jsx,ts,tsx}": [
-      "yarn eslint src/**/*.js --fix",
-      "yarn eslint src/**/*.jsx --fix"
-    ],
-    "*.py": [
-      "pipenv run isort animelister",
-      "pipenv run black --exclude=/migrations/ animelister/"
-    ]
-  },
   "eslintIgnore": [
     "__tests__"
   ]

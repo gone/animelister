@@ -1,0 +1,10 @@
+{% for anime in animes %}
+  <tr {% if forloop.last %}hx-get="{% url "index" %}?{{next_page_qs}}" hx-trigger="revealed" hx-swap="afterend"{% endif %}>
+  <th>{{anime.id}}</th>
+  <td><a href={{anime.get_absolute_url}} > {{ anime }}</a></td>
+    <td>{{anime.genre.all|join:", "}}</td>
+      <td>{{anime.avg_rating}}</td>
+      <td>{{anime.status}}</td>
+      <td>{{anime.season}}</td>
+  </tr>
+{% endfor %}

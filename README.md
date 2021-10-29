@@ -18,7 +18,7 @@ It's deployed on a docker image, with a nginx server to direct traffic between t
 	- `theme` - Contains the [Material UI theme](https://material-ui.com/customization/theming/). This contains overarching styles for the application and determines appearance of Material UI components globally.
 	- `util` - General reusable utility functions
 - `/animelister` - the Django project folder
-	- `account` - User related logic, views, models, etc.
+	- `User` - User related logic, views, models, etc.
 	- `home` - Handles home page for django, error endpoint, settings context processor
 	- `wagtailapp` - If wagtail was used via the cookiecutter setup script, this is where wagtail models, views, etc. are created
 	- `animelister` - Project settings, asgi settings, and base urls
