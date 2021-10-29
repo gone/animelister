@@ -1,1 +1,1 @@
-web: gunicorn animelister.animelister.settings.prod:app
+web: gunicorn animelister.animelister.asgi:app

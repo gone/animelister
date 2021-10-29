@@ -8,6 +8,9 @@ processes = []
 
 [build]
   builder = "heroku/buildpacks:20"
+[build.args]
+  DJANGO_SETTINGS_MODULE = "animelister.animelister.settings.prod"
+  ALLOWED_HOSTS = "*"
 
 [env]
   PORT = "8080"
