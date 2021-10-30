@@ -6,19 +6,17 @@ Lightmatter Base Install
 
 
 {% block content %}
-  <table class="table" >
+  <table class="table container" style="width:100%;" >
     <thead>
       <tr>
-        <th>ID</th>
-        <th>Title</th>
-        <th>Genre</th>
-        <th>Avg. Rating</th>
-        <th>Status</th>
-        <th>Season</th>
+        {% for sort_key, title in table_headers.items %}
+          <th><a href="?sort={% if request.GET.sort == sort_key %}-{% endif %}{{sort_key}}" hx-indicator="#loading-body" >{{title}}</th>
+        {% endfor %}
       </tr>
     </thead>
-  <tbody>
+  <tbody class="anime-body">
     {% include "home/partials/anime_table.html" with animes=animes %}
   </tbody>
+  <tbody class="loading-body htmx-indicator"></tbody>
   </table>
 {% endblock content %}

@@ -6,7 +6,9 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from annoying.functions import get_object_or_None
 from django.urls import reverse_lazy
+from django.contrib import messages
 
+from django.db.models import F
 from django.shortcuts import get_object_or_404
 
 # from django.utils.decorators import method_decorator
@@ -15,6 +17,7 @@ from django.shortcuts import get_object_or_404
 # from django.views.generic.detail import DetailView
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
+
 
 
 from .models import Anime, UserRating
@@ -40,11 +43,15 @@ class HomeView(ListView, HtmxTemplateResponseMixin):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        sort, search = self.request.GET.get("sort"), self.request.GET.get("search")
+        sort, search, reverse = self.request.GET.get("sort"), self.request.GET.get("search"),self.request.GET.get("reverse")
         if search:
             qs = qs.filter(name__icontains=search)
         if sort:
-            qs = qs.order_by(sort)
+            if sort.startswith('-'):
+                query = F(sort[1:]).desc(nulls_last=True)
+            else:
+                query = F(sort).asc(nulls_last=True)
+            qs = qs.order_by(query)
         return qs
 
     def get_context_data(self, **kwargs):
@@ -57,6 +64,16 @@ class HomeView(ListView, HtmxTemplateResponseMixin):
             newget = self.request.GET.copy()
             newget["page"] = next_page
             context["next_page_qs"] = newget.urlencode()
+        context['table_headers'] = {
+            'id': "ID",
+            'name': "Name",
+            'avg_rating': "Avg. Rating",
+            'status': "Status",
+            'season': "Season",
+            'genre': 'Genre',
+        }
+        #messages.info(self.request, 'Test Message for home view')
+
         return context
 
 
@@ -65,11 +82,14 @@ class AnimeDetailView(DetailView):
 
     def get_context_data(self, object):
         context = super().get_context_data()
-        rating = get_object_or_None(UserRating, user=self.request.user, anime=object)
-        context["userrating"] = rating = rating or UserRating(
-            user=self.request.user, anime=object
-        )
-        context["form"] = UserRatingForm(instance=rating)
+        if self.request.user.is_authenticated:
+            rating = get_object_or_None(
+                UserRating, user=self.request.user, anime=object
+            )
+            context["userrating"] = rating = rating or UserRating(
+                user=self.request.user, anime=object
+            )
+            context["form"] = UserRatingForm(instance=rating)
         return context
 
 

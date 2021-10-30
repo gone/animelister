@@ -20,7 +20,7 @@ class HtmxTemplateResponseMixin(TemplateResponseMixin):
                 "implementation of 'get_template_names()'"
             )
 
-        if self.request.htmx:
+        if self.request.htmx and not self.request.htmx.boosted:
             return [self.htmx_template_name]
 
         return [self.template_name]

@@ -22,6 +22,7 @@ django-allauth = "*"
 django-htmx = "*"
 django-annoying = "*"
 django-taggit = "*"
+pillow = "*"
 
 [dev-packages]
 ipython = "==7.25.0"

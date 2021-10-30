@@ -1,5 +1,4 @@
 from django.db import models  # NOQA
-
 from django_extensions.db.models import AutoSlugField  # NOQA
 from model_utils.models import TimeStampedModel  # NOQA
 
@@ -32,6 +31,11 @@ class UserRating(TimeStampedModel):
         return f"{self.user} - {self.anime} - {self.rating}"
 
 
+class AnimeManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().annotate(avg_rating=models.Avg("ratings__rating"))
+
+
 class Anime(TimeStampedModel):
     name = models.CharField("anime's name", max_length=255)
     slug = AutoSlugField(populate_from=["name"])
@@ -53,15 +57,13 @@ class Anime(TimeStampedModel):
 
     users = models.ManyToManyField(User, through=UserRating, related_name="animes")
 
+    objects = AnimeManager()
+
     def __str__(self):
         return self.name
 
     def get_absolute_url(self):
         return reverse("anime-detail", kwargs={"slug": self.slug})
-
-    @property
-    def avg_rating(self):
-        return 0
 
 
 class Studio(TimeStampedModel):

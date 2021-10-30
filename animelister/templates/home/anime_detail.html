@@ -9,6 +9,8 @@ Lightmatter Base Install
   <section class="section" >
   <h1 class="title">{{ anime.name }}</h1>
   <p class="content">{{ anime.description }}</p>
-  {% include "home/partials/user_rating_form.html" with form=form anime=anime %}
+  {% if form %}
+    {% include "home/partials/user_rating_form.html" with form=form anime=anime %}
+  {% endif %}
   </section>
 {% endblock content %}
