@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-bandit -r animelister/ -l -x tests.py
-isort --check-only animelister/**/*.py
-black --check --diff --exclude=/migrations/ animelister/
-prospector -I "animelister/settings/*"
+poetry run bandit -r animelister/ -l -x tests.py
+poetry run isort --check-only animelister/**/*.py
+poetry run black --check --diff --exclude=/migrations/ animelister/
+poetry run prospector -I "animelister/settings/*"

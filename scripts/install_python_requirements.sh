@@ -1,2 +1,2 @@
 #!/bin/bash
-pipenv install
+poetry install
