@@ -77,6 +77,11 @@ class HomeView(ListView, HtmxTemplateResponseMixin):
         return context
 
 
+
+
+class FixedHomeView(HomeView):
+    template_name = "home/index_fixed.html"
+
 class AnimeDetailView(DetailView):
     model = Anime
 

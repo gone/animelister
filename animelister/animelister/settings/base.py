@@ -81,12 +81,12 @@ MIDDLEWARE = (
 ROOT_URLCONF = "animelister.animelister.urls"
 
 INSTALLED_APPS = (
+    "whitenoise.runserver_nostatic",
     "django.contrib.contenttypes",
     "django.contrib.auth",
     "django.contrib.sessions",
     "django.contrib.sites",
     "django.contrib.messages",
-    "whitenoise.runserver_nostatic",
     "django.contrib.staticfiles",
     "django.contrib.admin",
     "django_extensions",
