@@ -49,7 +49,10 @@
           {% block content %}
           {% endblock content %}
       </div>
+
+      <ul class="messages" id="messages" >
       {% include "messages.html" with no_oob=True %}
+      </ul>
       {% include "footer.html" %}
       </div>
   </body>

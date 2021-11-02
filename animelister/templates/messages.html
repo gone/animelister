@@ -1,10 +1,8 @@
-<ul class="messages" id="messages" {% if not no_oob %}hx-swap-oob="beforeend" {% endif %} >
-  {% for message in messages %}
-    <li>
-      <div x-data="{visible: true}" x-show="visible" class="notification {% if message.tags %}{{ message.tags }}{% endif %}">
-        <button class="delete" x-on:click="visible = false"></button>
-        {{message}}
-      </div>
-    </li>
-  {% endfor %}
-</ul>
+{% for message in messages %}
+  <li hx-swap-oob="beforeend:#messages"  >
+    <div x-data="{visible: true}" x-show="visible" class="notification {% if message.tags %}{{ message.tags }}{% endif %}">
+      <button class="delete" x-on:click="visible = false"></button>
+      {{message}}
+    </div>
+  </li>
+{% endfor %}

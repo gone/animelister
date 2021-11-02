@@ -1,4 +1,4 @@
-<form hx-post="{% url "rate-anime" slug=anime.slug %}" id="anime-rate-form" hx-swap="outerHTML" hx-indicator=".htmx-indicator">
+<form hx-post="{% url "rate-anime" slug=anime.slug %}" id="anime-rate-form" hx-swap="outerHTML" hx-indicator=".htmx-indicator" hx-push-url="false">
   {{form.anime.as_hidden}}
   {{form.user.as_hidden}}
   <div class="field">
