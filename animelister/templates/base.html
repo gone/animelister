@@ -41,7 +41,7 @@
     {% load django_htmx %}
     {% django_htmx_script %}
   </head>
-  <body hx-boost="true">
+  <body hx-boost="true" hx-push-url="true">
       <div class="{% block body_class %}{% endblock body_class %}">
       {% include "header.html" %}
 
@@ -49,7 +49,7 @@
           {% block content %}
           {% endblock content %}
       </div>
-      {% include "messages.html" %}
+      {% include "messages.html" with no_oob=True %}
       {% include "footer.html" %}
       </div>
   </body>

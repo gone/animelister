@@ -1,4 +1,4 @@
-<ul class="messages" id="messages" hx-swap-oob="beforeend" >
+<ul class="messages" id="messages" {% if not no_oob %}hx-swap-oob="beforeend" {% endif %} >
   {% for message in messages %}
     <li>
       <div x-data="{visible: true}" x-show="visible" class="notification {% if message.tags %}{{ message.tags }}{% endif %}">
