@@ -14,9 +14,9 @@ RUN pip install poetry
 #RUN apt-get update && apt-get install -y --no-install-recommends gcc
 
 # Install python dependencies in /.venv
-COPY pyproject.toml
-COPY poetry.lock
-RUN POETRY_VIRTUALENVS_IN_PROJECT=true poetry install
+COPY pyproject.toml .
+COPY poetry.lock .
+RUN POETRY_VIRTUALENVS_IN_PROJECT=true poetry install --no-dev
 
 
 

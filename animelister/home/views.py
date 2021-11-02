@@ -121,6 +121,10 @@ class UserRatingView(UpdateView):
         context["anime"] = self.anime
         return context
 
+    def form_valid(self, form):
+        messages.info(self.request, 'added to your list')
+        return super().form_valid(form)
+
     # TODO; this is copy pasted from django source, do this with subclassing
     # althogh the 303 bug is annoying - if you redirct to the same location
     # and do so with a 302 it will just keep trying to delete vs switching to GET
@@ -132,6 +136,7 @@ class UserRatingView(UpdateView):
         self.object = self.get_object()
         success_url = self.get_success_url()
         self.object.delete()
+        messages.info(self.request, 'Removed from your list')
         return HttpResponseRedirect(success_url, status=303)
 
 

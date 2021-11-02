@@ -16,7 +16,6 @@ django-storages = "^1.12.3"
 uvicorn = "^0.15.0"
 gunicorn = "^20.1.0"
 sentry-sdk = "^1.4.3"
-django-503 = "^0.1"
 Django = "^3.2.8"
 whitenoise = {extras = ["brotli"], version = "^5.3.0"}
 django-allauth = "^0.45.0"
@@ -24,7 +23,7 @@ django-htmx = "^1.6.0"
 django-annoying = "^0.10.6"
 django-taggit = "^1.5.1"
 Pillow = "^8.4.0"
-prospector = "^1.5.1"
+django-anymail = {extras = ["sendgrid"], version = "^8.4"}
 
 [tool.poetry.dev-dependencies]
 ipython = "^7.29.0"
@@ -44,7 +43,7 @@ honcho = "*"
 flake8 = "==3.8.4"
 flake8-polyfill = "==1.0.2"
 unittest-xml-reporting = "^3.0.4"
-
+prospector = "^1.5.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

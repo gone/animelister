@@ -1,12 +1,10 @@
-{% if messages %}
-  <ul class="messages">
-    {% for message in messages %}
-      <li>
-        <div x-data="{visible: true}" x-show="visible" class="notification {% if message.tags %}{{ message.tags }}{% endif %}">
-          <button class="delete" x-on:click="visible = false"></button>
-          {{message}}
-        </div>
-      </li>
-    {% endfor %}
-  </ul>
-{% endif %}
+<ul class="messages" id="messages" hx-swap-oob="beforeend" >
+  {% for message in messages %}
+    <li>
+      <div x-data="{visible: true}" x-show="visible" class="notification {% if message.tags %}{{ message.tags }}{% endif %}">
+        <button class="delete" x-on:click="visible = false"></button>
+        {{message}}
+      </div>
+    </li>
+  {% endfor %}
+</ul>

@@ -11,6 +11,9 @@ Lightmatter Base Install
   <p class="content">{{ anime.description }}</p>
   {% if form %}
     {% include "home/partials/user_rating_form.html" with form=form anime=anime %}
+    <center>
+      <img class="htmx-indicator" src="{% static "img/bars.svg" %}"/>
+    </center>
   {% endif %}
   </section>
 {% endblock content %}

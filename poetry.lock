@@ -29,7 +29,7 @@ tests = ["pytest", "pytest-asyncio", "mypy (>=0.800)"]
 name = "astroid"
 version = "2.8.4"
 description = "An abstract syntax tree for Python with inference support."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "~=3.6"
 
@@ -249,17 +249,6 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
-name = "django-503"
-version = "0.1"
-description = "An app to show 503 error page, while your django site is on maintenance."
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.extras]
-test = ["Django (>=1.2,<1.4)"]
-
-[[package]]
 name = "django-allauth"
 version = "0.45.0"
 description = "Integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication."
@@ -285,6 +274,23 @@ python-versions = "*"
 [package.dependencies]
 Django = ">=1.11"
 six = "*"
+
+[[package]]
+name = "django-anymail"
+version = "8.4"
+description = "Django email integration for Amazon SES, Mailgun, Mailjet, Postmark, SendGrid, SendinBlue, SparkPost and other transactional ESPs"
+category = "main"
+optional = false
+python-versions = ">=3.5"
+
+[package.dependencies]
+django = ">=2.0"
+requests = ">=2.4.3"
+
+[package.extras]
+amazon_ses = ["boto3"]
+dev = ["flake8", "sphinx", "sphinx-rtd-theme", "tox", "twine", "wheel"]
+postal = ["cryptography"]
 
 [[package]]
 name = "django-debug-toolbar"
@@ -391,7 +397,7 @@ Django = ">=2.2"
 name = "dodgy"
 version = "0.2.1"
 description = "Dodgy: Searches for dodgy looking lines in Python code"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -419,7 +425,7 @@ pyrepl = ">=0.8.2"
 name = "flake8"
 version = "3.8.4"
 description = "the modular source code checker: pep8 pyflakes and co"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
 
@@ -432,7 +438,7 @@ pyflakes = ">=2.2.0,<2.3.0"
 name = "flake8-polyfill"
 version = "1.0.2"
 description = "Polyfill package for Flake8 plugins"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -555,7 +561,7 @@ test = ["nose (>=0.10.1)", "requests", "testpath", "pygments", "nbformat", "ipyk
 name = "isort"
 version = "5.9.3"
 description = "A Python utility / library to sort Python imports."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6.1,<4.0"
 
@@ -592,7 +598,7 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 name = "lazy-object-proxy"
 version = "1.6.0"
 description = "A fast and thorough lazy object proxy."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 
@@ -619,7 +625,7 @@ traitlets = "*"
 name = "mccabe"
 version = "0.6.1"
 description = "McCabe checker, plugin for flake8"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -726,7 +732,7 @@ testing = ["funcsigs", "pytest"]
 name = "pep8-naming"
 version = "0.10.0"
 description = "Check PEP-8 naming conventions, plugin for flake8"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -764,7 +770,7 @@ python-versions = ">=3.6"
 name = "platformdirs"
 version = "2.4.0"
 description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -787,7 +793,7 @@ wcwidth = "*"
 name = "prospector"
 version = "1.5.1"
 description = ""
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6.1,<4.0"
 
@@ -854,7 +860,7 @@ python-versions = "*"
 name = "pycodestyle"
 version = "2.6.0"
 description = "Python style guide checker"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -870,7 +876,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 name = "pydocstyle"
 version = "6.1.1"
 description = "Python docstring style checker"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -884,7 +890,7 @@ toml = ["toml"]
 name = "pyflakes"
 version = "2.2.0"
 description = "passive checker of Python programs"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -917,7 +923,7 @@ tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
 name = "pylint"
 version = "2.11.1"
 description = "python code static checker"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "~=3.6"
 
@@ -934,7 +940,7 @@ typing-extensions = {version = ">=3.10.0", markers = "python_version < \"3.10\""
 name = "pylint-celery"
 version = "0.3"
 description = "pylint-celery is a Pylint plugin to aid Pylint in recognising and understandingerrors caused when using the Celery library"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -947,7 +953,7 @@ pylint-plugin-utils = ">=0.2.1"
 name = "pylint-django"
 version = "2.4.4"
 description = "A Pylint plugin to help Pylint understand the Django web framework"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -963,7 +969,7 @@ with_django = ["django"]
 name = "pylint-flask"
 version = "0.6"
 description = "pylint-flask is a Pylint plugin to aid Pylint in recognizing and understanding errors caused when using Flask"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -974,7 +980,7 @@ pylint-plugin-utils = ">=0.2.1"
 name = "pylint-plugin-utils"
 version = "0.6"
 description = "Utilities and helpers for writing Pylint plugins"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -1084,7 +1090,7 @@ rsa = ["oauthlib[signedtoken] (>=3.0.0)"]
 name = "requirements-detector"
 version = "0.7"
 description = "Python tool to find and list requirements of a Python project"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -1138,7 +1144,7 @@ tornado = ["tornado (>=5)"]
 name = "setoptconf-tmp"
 version = "0.3.1"
 description = "A module for retrieving program settings from various sources in a consistant method."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -1165,7 +1171,7 @@ python-versions = ">=3.6"
 name = "snowballstemmer"
 version = "2.1.0"
 description = "This package provides 29 stemmers for 28 languages generated from Snowball algorithms."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -1218,7 +1224,7 @@ yaml = ["pyyaml"]
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
@@ -1245,7 +1251,7 @@ test = ["pytest"]
 name = "typing-extensions"
 version = "3.10.0.2"
 description = "Backported and Experimental Type Hints for Python 3.5+"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -1342,7 +1348,7 @@ python-versions = "*"
 name = "wrapt"
 version = "1.13.3"
 description = "Module for decorators, wrappers and monkey patching."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
 
@@ -1370,7 +1376,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "14c4fa5d0094e59cbc07554fc31ab777cf747af54688fb9b1939dbc009ed1ec5"
+content-hash = "65e189131e538a65ed4747faf7ef5292ccca883723877ec5e18492dd2bfee857"
 
 [metadata.files]
 appdirs = [
@@ -1615,15 +1621,16 @@ django = [
     {file = "Django-3.2.8-py3-none-any.whl", hash = "sha256:42573831292029639b798fe4d3812996bfe4ff3275f04566da90764daec011a5"},
     {file = "Django-3.2.8.tar.gz", hash = "sha256:f6d2c4069c9b9bfac03bedff927ea1f9e0d29e34525cec8a68fd28eb2a8df7af"},
 ]
-django-503 = [
-    {file = "django-503-0.1.tar.gz", hash = "sha256:c39f5caed7559cff1ab9c0720c4cd18b86ea221de7dfeb5b886fed58f7bfef1d"},
-]
 django-allauth = [
     {file = "django-allauth-0.45.0.tar.gz", hash = "sha256:6d46be0e1480316ccd45476db3aefb39db70e038d2a543112d314b76bb999a4e"},
 ]
 django-annoying = [
     {file = "django-annoying-0.10.6.tar.gz", hash = "sha256:083b5e26f140f86178fcb47931f69b7ff75181ccd1e318d9c218ae9babc1805e"},
     {file = "django_annoying-0.10.6-py2.py3-none-any.whl", hash = "sha256:e230f28fec0559b4fdb621ff202068a78170ada2ac1ec7a73ba822cc1f737791"},
+]
+django-anymail = [
+    {file = "django-anymail-8.4.tar.gz", hash = "sha256:671a338de43b8e414d48c6d16aac1df54d2f24f916e1073f9f60aef5acffaf89"},
+    {file = "django_anymail-8.4-py3-none-any.whl", hash = "sha256:2e8307e84f0a12f9283469017094a8246db9a0fc608ac17dd1027ee011ece986"},
 ]
 django-debug-toolbar = [
     {file = "django-debug-toolbar-3.2.2.tar.gz", hash = "sha256:8c5b13795d4040008ee69ba82dcdd259c49db346cf7d0de6e561a49d191f0860"},
