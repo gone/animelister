@@ -32,8 +32,6 @@ CSRF_TRUSTED_ORIGINS = [
     if env("ALLOWED_HOSTS", None)
 ]
 
-STATIC_ROOT = root("static")
-
 # redis_url = urlparse(env("REDIS_URL", default="redis://localhost:6959"))
 # CACHES = {
 #     "default": {

@@ -5,7 +5,7 @@ env.read_env(repo_root(".env"), SECRET_KEY="changeme")  # nosec
 
 ALLOWED_HOSTS = [u"127.0.0.1", "localhost", "localhost:8000"]
 DEBUG = True
-
+DJANGO_VITE_DEV_MODE = DEBUG
 
 DATABASES = {"default": env.db()}
 
@@ -18,8 +18,6 @@ CACHES = {
 
 MEDIA_ROOT = root("media")
 MEDIA_URL = "http://127.0.0.1:8000/media/"
-
-STATIC_ROOT = root("static")
 
 
 INSTALLED_APPS += ("debug_toolbar",)

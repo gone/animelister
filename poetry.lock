@@ -394,6 +394,17 @@ python-versions = ">=3.6"
 Django = ">=2.2"
 
 [[package]]
+name = "django-vite"
+version = "1.2.1"
+description = "Integration of ViteJS in a Django project."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Django = ">=1.11"
+
+[[package]]
 name = "dodgy"
 version = "0.2.1"
 description = "Dodgy: Searches for dodgy looking lines in Python code"
@@ -1376,7 +1387,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "65e189131e538a65ed4747faf7ef5292ccca883723877ec5e18492dd2bfee857"
+content-hash = "103c83c8473ff3569d8a3273d059cd801b51b01ffa0acfc37f8a415af6f33e47"
 
 [metadata.files]
 appdirs = [
@@ -1663,6 +1674,10 @@ django-storages = [
 django-taggit = [
     {file = "django-taggit-1.5.1.tar.gz", hash = "sha256:e5bb62891f458d55332e36a32e19c08d20142c43f74bc5656c803f8af25c084a"},
     {file = "django_taggit-1.5.1-py3-none-any.whl", hash = "sha256:dfe9e9c10b5929132041de0c00093ef0072c73c2a97d0f74a818ae50fa77149a"},
+]
+django-vite = [
+    {file = "django-vite-1.2.1.tar.gz", hash = "sha256:b2f645dc3fb367699063bacecf4ac1c375dae539b63ee33e7b18458744464392"},
+    {file = "django_vite-1.2.1-py3-none-any.whl", hash = "sha256:68332226cb72b9a3b8d4c155926dbbcd83b5855380a0776baed7280ef15e2185"},
 ]
 dodgy = [
     {file = "dodgy-0.2.1-py3-none-any.whl", hash = "sha256:51f54c0fd886fa3854387f354b19f429d38c04f984f38bc572558b703c0542a6"},

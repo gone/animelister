@@ -24,6 +24,7 @@ django-annoying = "^0.10.6"
 django-taggit = "^1.5.1"
 Pillow = "^8.4.0"
 django-anymail = {extras = ["sendgrid"], version = "^8.4"}
+django-vite = "^1.2.1"
 
 [tool.poetry.dev-dependencies]
 ipython = "^7.29.0"

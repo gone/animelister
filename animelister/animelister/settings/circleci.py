@@ -17,8 +17,6 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 # Allow all host headers
 ALLOWED_HOSTS = ["*"]
 
-STATIC_ROOT = root("static")
-STATIC_URL = "/static/"
 MEDIA_ROOT = root("media")
 MEDIA_URL = "/media/"
 

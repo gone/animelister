@@ -4,6 +4,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {% load django_vite %}
+    {% vite_hmr_client %}
+    {% vite_asset 'js/main.js' %}
+
 
     {% block htmx_script %}
       <script src="{% static "js/htmx.js" %}"></script>

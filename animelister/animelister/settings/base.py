@@ -63,6 +63,12 @@ STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 )
 
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+DJANGO_VITE_ASSETS_PATH = root.path("static")
+
+STATIC_ROOT = root("static")
+
+
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
@@ -92,6 +98,7 @@ INSTALLED_APPS = (
     "django.contrib.admin",
     "django_extensions",
     "django_htmx",
+    "django_vite",
     "model_utils",
     "taggit",
     "import_export",
@@ -184,7 +191,6 @@ TEMPLATES = [
     }
 ]
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 try:
     from model_bakery import random_gen  # noqa
