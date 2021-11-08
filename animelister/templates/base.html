@@ -6,44 +6,18 @@
 
     {% load django_vite %}
     {% vite_hmr_client %}
+    {% vite_asset 'js/system.js' %}
     {% vite_asset 'js/main.js' %}
 
+    {% load django_htmx %}
+    {% django_htmx_script %}
 
-    {% block htmx_script %}
-      <script src="{% static "js/htmx.js" %}"></script>
-    {% endblock htmx_script %}
-    <script src="//unpkg.com/alpinejs" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-    <style>
-      .messages {
-        position: fixed;
-        left: 40px;
-        bottom: 40px;
-      }
-      .id {
-        width: 10%;
-      }
-      .name {
-        width: 40%;
-      }
-      .avg_rating, .status, .season {
-        width: 10%;
-      }
-      .genre {
-        width: 20%
-      }
-      #loading-body{
-        position: fixed;
-        top: 50%;
-        z-index:40;
-      }
-
-    </style>
     {% block extra_head %}
     <title>Lightmatter</title>
     {% endblock extra_head %}
-    {% load django_htmx %}
-    {% django_htmx_script %}
+
+
   </head>
   <body hx-boost="true" hx-push-url="true">
       <div class="{% block body_class %}{% endblock body_class %}">

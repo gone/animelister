@@ -7,6 +7,14 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONFAULTHANDLER 1
 ENV DJANGO_SETTINGS_MODULE=animelister.animelister.settings.prod
 
+
+
+FROM node:lts-alpine AS js-deps
+# Install application into container
+COPY . .
+RUN npm install
+RUN npm run build
+
 FROM base AS python-deps
 
 # Install poetry and compilation dependencies
@@ -31,6 +39,7 @@ WORKDIR app
 
 # Install application into container
 COPY . .
+COPY --from=js-deps /animelister/static ./animelister/static
 
 RUN APP_VERSION_RELEASE="build" ENVIRONMENT="build" SENTRY_DSN="" REDIS_URL="" DATABASE_URL="" ALLOWED_HOSTS="*" SECRET_KEY="foobar" python ./manage.py collectstatic --noinput
 CMD gunicorn animelister.animelister.asgi:application --bind 0.0.0.0:8080  -k uvicorn.workers.UvicornWorker --access-logfile - --preload

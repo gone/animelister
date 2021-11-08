@@ -11,5 +11,7 @@
     "vite": "^2.6.4"
   },
   "dependencies": {
+    "alpinejs": "^3.5.0",
+    "htmx.org": "^1.6.0"
   }
 }
