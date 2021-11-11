@@ -7,7 +7,10 @@
     "serve": "vite preview"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.0",
     "fast-glob": "^3.2.7",
+    "postcss": "^8.3.11",
+    "tailwindcss": "^2.2.19",
     "vite": "^2.6.4"
   },
   "dependencies": {

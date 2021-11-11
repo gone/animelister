@@ -1,5 +1,23 @@
 from django import forms
-from .models import UserRating
+from .models import UserRating, Anime
+
+
+class AnimeForm(forms.ModelForm):
+    class Meta:
+        model = Anime
+        fields = [
+            "name",
+            "type",
+            "status",
+            "aired",
+            "source",
+            "duration",
+            "genre",
+            "seiyuu",
+            "studio",
+            "description",
+            "season",
+        ]
 
 
 class UserRatingForm(forms.ModelForm):

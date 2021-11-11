@@ -9,7 +9,7 @@ Lightmatter Base Install
   <center>
     <img class="htmx-indicator" id="loading-body" src="{% static "img/bars.svg" %}"/>
   </center>
-  <table class="table container" style="width:100%;" hx-indicator=".htmx-table-loading" >
+  <table class="table-fixed max-w-full" hx-indicator=".htmx-table-loading" >
     <thead hx-indicator=".htmx-page">
       <tr>
         {% for sort_key, title in table_headers.items %}

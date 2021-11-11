@@ -18,10 +18,11 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
 
+from django_htmx.http import HttpResponseClientRedirect
 
 
 from .models import Anime, UserRating
-from .forms import UserRatingForm
+from .forms import UserRatingForm, AnimeForm
 from django.views.generic import ListView
 
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -43,11 +44,15 @@ class HomeView(ListView, HtmxTemplateResponseMixin):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        sort, search, reverse = self.request.GET.get("sort"), self.request.GET.get("search"),self.request.GET.get("reverse")
+        sort, search, reverse = (
+            self.request.GET.get("sort"),
+            self.request.GET.get("search"),
+            self.request.GET.get("reverse"),
+        )
         if search:
             qs = qs.filter(name__icontains=search)
         if sort:
-            if sort.startswith('-'):
+            if sort.startswith("-"):
                 query = F(sort[1:]).desc(nulls_last=True)
             else:
                 query = F(sort).asc(nulls_last=True)
@@ -64,23 +69,22 @@ class HomeView(ListView, HtmxTemplateResponseMixin):
             newget = self.request.GET.copy()
             newget["page"] = next_page
             context["next_page_qs"] = newget.urlencode()
-        context['table_headers'] = {
-            'id': "ID",
-            'name': "Name",
-            'avg_rating': "Avg. Rating",
-            'status': "Status",
-            'season': "Season",
-            'genre': 'Genre',
+        context["table_headers"] = {
+            "id": "ID",
+            "name": "Name",
+            "avg_rating": "Avg. Rating",
+            "status": "Status",
+            "season": "Season",
+            "genre": "Genre",
         }
-        #messages.info(self.request, 'Test Message for home view')
+        # messages.info(self.request, 'Test Message for home view')
 
         return context
 
 
-
-
 class FixedHomeView(HomeView):
     template_name = "home/index_fixed.html"
+
 
 class AnimeDetailView(DetailView):
     model = Anime
@@ -96,6 +100,22 @@ class AnimeDetailView(DetailView):
             )
             context["form"] = UserRatingForm(instance=rating)
         return context
+
+
+class AnimeWrite(UpdateView, HtmxTemplateResponseMixin):
+    template_name = "home/anime_update.html"
+    htmx_template_name = "home/partials/anime_form.html"
+    model = Anime
+    form_class = AnimeForm
+
+    def get_object(self):
+        self.anime = get_object_or_None(Anime, slug=self.kwargs.get("slug"))
+        return self.anime or Anime()
+
+    def form_valid(self, form):
+        """If the form is valid, save the associated model."""
+        self.object = form.save()
+        return HttpResponseClientRedirect(self.get_success_url())
 
 
 class UserRatingView(UpdateView):
@@ -122,7 +142,7 @@ class UserRatingView(UpdateView):
         return context
 
     def form_valid(self, form):
-        messages.info(self.request, 'added to your list')
+        messages.info(self.request, "added to your list")
         return super().form_valid(form)
 
     # TODO; this is copy pasted from django source, do this with subclassing
@@ -136,7 +156,7 @@ class UserRatingView(UpdateView):
         self.object = self.get_object()
         success_url = self.get_success_url()
         self.object.delete()
-        messages.info(self.request, 'Removed from your list')
+        messages.info(self.request, "Removed from your list")
         return HttpResponseRedirect(success_url, status=303)
 
 
