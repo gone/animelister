@@ -1,4 +1,23 @@
 <form hx-post="{% url "rate-anime" slug=anime.slug %}" id="anime-rate-form" hx-swap="outerHTML" hx-indicator=".htmx-indicator" hx-push-url="false">
+
+  <div v-scope="Counter({ initialCount: 1 })" @mounted="mounted">
+    <p>${ count }</p>
+    <span @click="inc">increment</button>
+  </div>
+
+  <div v-scope="Counter({ initialCount: 2 })">
+    <p>${ count }</p>
+    <span @click="inc">increment</button>
+  </div>
+
+
+
+  <div v-scope="GlobalCounter({ initialCount: 2 })">
+    <p>${ store.count }</p>
+    <span @click="store.global_inc">increment</button>
+  </div>
+
+
   {{form.anime.as_hidden}}
   {{form.user.as_hidden}}
   <div class="field">

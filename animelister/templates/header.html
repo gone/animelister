@@ -7,5 +7,7 @@
     {% else %}
     <a href="{% url "account_login" %}"> login</a>
     {% endif %}
+    <p v-scope>Global ${ store.count }</p>
+    <a href="{% url "anime-create" %}"> Create anime </a>
   </nav>
 </header>

@@ -3,6 +3,16 @@
     <div v-scope="{visible: true}" v-show="visible" class="notification {% if message.tags %}{{ message.tags }}{% endif %}">
       <button class="delete" @click="visible = false"></button>
       {{message}}
+
+      <div v-scope="Counter({ initialCount: 10 })" @mounted="mounted">
+        <p>${ count }</p>
+        <button @click="inc">increment</button>
+      </div>
+
+      <div v-scope="Counter({ initialCount: 20 })">
+        <p>${ count }</p>
+        <button @click="inc">increment</button>
+      </div>
     </div>
   </li>
 {% endfor %}
