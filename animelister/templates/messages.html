@@ -1,7 +1,7 @@
 {% for message in messages %}
   <li hx-swap-oob="beforeend:#messages"  >
-    <div x-data="{visible: true}" x-show="visible" class="notification {% if message.tags %}{{ message.tags }}{% endif %}">
-      <button class="delete" x-on:click="visible = false"></button>
+    <div v-scope="{visible: true}" v-show="visible" class="notification {% if message.tags %}{{ message.tags }}{% endif %}">
+      <button class="delete" @click="visible = false"></button>
       {{message}}
     </div>
   </li>

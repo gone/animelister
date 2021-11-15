@@ -1,5 +1,6 @@
 import 'htmx.org';
-import Alpine from 'alpinejs';
-// // window.Alpine = Alpine  //useful for debugging
+import {createApp} from 'petite-vue';
 
-Alpine.start();
+htmx.on("htmx:load", function(evt) {
+  createApp().mount(evt.detail.elt);
+});
