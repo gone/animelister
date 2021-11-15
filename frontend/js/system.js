@@ -50,6 +50,6 @@ app.mount(document.body);
 htmx.on("htmx:afterSwap", function(evt) {
   app.mount(evt.target);
 });
-// htmx.on("htmx:load", function(evt) {
-//     app.mount(evt.detail.elt);
-//  });
+htmx.on("htmx:load", function(evt) {
+  app.mount(evt.detail.elt);
+});
