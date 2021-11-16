@@ -86,6 +86,7 @@ class FixedHomeView(HomeView):
     template_name = "home/index_fixed.html"
 
 
+# always a top level view - so set "HX-Retarget"
 class AnimeDetailView(DetailView):
     model = Anime
 
@@ -101,7 +102,13 @@ class AnimeDetailView(DetailView):
             context["form"] = UserRatingForm(instance=rating)
         return context
 
+    def get(self, request, *args, **kwargs):
+        response = super().get(request, *args, **kwargs)
+        response["HX-Retarget"] = "body"
+        return response
 
+
+# this view submits to self, and validates with a partial, but redirects to a different view
 class AnimeWrite(UpdateView, HtmxTemplateResponseMixin):
     template_name = "home/anime_update.html"
     htmx_template_name = "home/partials/anime_form.html"
@@ -112,12 +119,17 @@ class AnimeWrite(UpdateView, HtmxTemplateResponseMixin):
         self.anime = get_object_or_None(Anime, slug=self.kwargs.get("slug"))
         return self.anime or Anime()
 
-    def form_valid(self, form):
-        """If the form is valid, save the associated model."""
-        self.object = form.save()
-        return HttpResponseClientRedirect(self.get_success_url())
+
+from django.shortcuts import redirect
 
 
+def simple_redirect_view(self, anime_id):
+    a = Anime.objects.get(id=anime_id)
+    response = redirect(a.get_absolute_url())
+    return response
+
+
+# this form is always htmx-ed
 class UserRatingView(UpdateView):
     template_name = "home/partials/user_rating_form.html"
     model = UserRating

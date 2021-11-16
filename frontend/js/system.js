@@ -1,4 +1,4 @@
-import 'htmx.org';
+import './htmx.js';
 import {createApp, reactive} from 'petite-vue';
 
 const store = reactive({
