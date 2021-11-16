@@ -1,4 +1,4 @@
-import './htmx.js';
+// @ts-ignore
 import {createApp, reactive} from 'petite-vue';
 
 const store = reactive({
@@ -9,11 +9,11 @@ const store = reactive({
 })
 
 
-function GlobalCounter(props) {
+function GlobalCounter(props: {initialCount: number}) {
   return {
     count: props.initialCount,
     inc() {
-      store.inc();
+      store.global_inc();
     },
     mounted() {
       console.log(`I'm mounted!`);
@@ -22,7 +22,7 @@ function GlobalCounter(props) {
 }
 
 
-function Counter(props) {
+function Counter(props: {initialCount: number} ) {
   return {
     count: props.initialCount,
     inc() {
@@ -47,9 +47,13 @@ const app = createApp({
 });
 //catch template jitter
 app.mount(document.body);
-htmx.on("htmx:afterSwap", function(evt) {
+
+// @ts-ignore: htmx needs on declared
+document.body.addEventListener('htmx:afterSwap', (evt: any) => {
   app.mount(evt.target);
 });
-htmx.on("htmx:load", function(evt) {
+
+// @ts-ignore: htmx needs on declared
+document.body.addEventListener('htmx:load', (evt: any) => {
   app.mount(evt.detail.elt);
 });

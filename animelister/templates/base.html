@@ -6,8 +6,9 @@
 
     {% load django_vite %}
     {% vite_hmr_client %}
-    {% vite_asset 'js/system.js' %}
-    {% vite_asset 'js/main.js' %}
+    {% vite_asset 'js/system.ts' %}
+    {% vite_asset 'js/main.ts' %}
+    {% vite_asset 'js/htmx.js' %}
 
     {% load django_htmx %}
     {% django_htmx_script %}
