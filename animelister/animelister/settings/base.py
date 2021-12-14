@@ -99,6 +99,7 @@ INSTALLED_APPS = (
     "django_extensions",
     "django_htmx",
     "django_vite",
+    "django_components",
     "model_utils",
     "taggit",
     "import_export",
@@ -183,10 +184,22 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [root("templates")],
-        "APP_DIRS": True,
         "OPTIONS": {
-            "builtins": ["django.templatetags.static"],
+            "builtins": [
+                "django.templatetags.static",
+                "django_components.templatetags.component_tags",
+            ],
             "context_processors": CONTEXT_PROCESSORS,
+            "loaders": [
+                (
+                    "django.template.loaders.cached.Loader",
+                    [
+                        "django.template.loaders.filesystem.Loader",
+                        "django.template.loaders.app_directories.Loader",
+                        "django_components.template_loader.Loader",
+                    ],
+                )
+            ],
         },
     }
 ]

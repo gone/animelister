@@ -39,7 +39,7 @@ class HomeView(ListView, HtmxTemplateResponseMixin):
     model = Anime
     context_object_name = "animes"
     template_name = "home/index.html"
-    htmx_template_name = "home/partials/anime_table.html"
+    htmx_template_name = "home/index_htmx.html"
     paginate_by = 20
 
     def get_queryset(self):
@@ -111,7 +111,7 @@ class AnimeDetailView(DetailView):
 # this view submits to self, and validates with a partial, but redirects to a different view
 class AnimeWrite(UpdateView, HtmxTemplateResponseMixin):
     template_name = "home/anime_update.html"
-    htmx_template_name = "home/partials/anime_form.html"
+    htmx_template_name = "home/components/anime_form.html"
     model = Anime
     form_class = AnimeForm
 
@@ -131,7 +131,7 @@ def simple_redirect_view(self, anime_id):
 
 # this form is always htmx-ed
 class UserRatingView(UpdateView):
-    template_name = "home/partials/user_rating_form.html"
+    template_name = "home/components/user_rating_form.html"
     model = UserRating
     form_class = UserRatingForm
 

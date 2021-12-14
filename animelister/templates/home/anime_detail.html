@@ -12,7 +12,7 @@ Lightmatter Base Install
 
   <p hx-get="{% url "redirect_test" anime_id=anime.id %}"  hx-swap="outerHTML" hx-indicator=".htmx-indicator" hx-push-url="false"   > redirect test -  {{ anime.name }}</p>
   {% if form %}
-    {% include "home/partials/user_rating_form.html" with form=form anime=anime %}
+    {% include "home/components/user_rating_form.html" with form=form anime=anime %}
     <center>
       <img class="htmx-indicator" src="{% static "img/bars.svg" %}"/>
     </center>

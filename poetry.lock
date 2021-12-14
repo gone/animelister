@@ -293,6 +293,17 @@ dev = ["flake8", "sphinx", "sphinx-rtd-theme", "tox", "twine", "wheel"]
 postal = ["cryptography"]
 
 [[package]]
+name = "django-components"
+version = "0.17"
+description = "A way to create simple reusable template components in Django."
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+Django = ">=2.2"
+
+[[package]]
 name = "django-debug-toolbar"
 version = "3.2.2"
 description = "A configurable set of panels that display various debug information about the current request/response."
@@ -1387,7 +1398,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "103c83c8473ff3569d8a3273d059cd801b51b01ffa0acfc37f8a415af6f33e47"
+content-hash = "4d91d16291db06e727d00200b921819c9a1e2ed0eaede48cfbb6f7a6db37be8a"
 
 [metadata.files]
 appdirs = [
@@ -1642,6 +1653,10 @@ django-annoying = [
 django-anymail = [
     {file = "django-anymail-8.4.tar.gz", hash = "sha256:671a338de43b8e414d48c6d16aac1df54d2f24f916e1073f9f60aef5acffaf89"},
     {file = "django_anymail-8.4-py3-none-any.whl", hash = "sha256:2e8307e84f0a12f9283469017094a8246db9a0fc608ac17dd1027ee011ece986"},
+]
+django-components = [
+    {file = "django_components-0.17-py3-none-any.whl", hash = "sha256:eb5828e9cc74264f10ca3285c47e6e283377c7019dd3aac5cb8d4113043dffe7"},
+    {file = "django_components-0.17.tar.gz", hash = "sha256:e0793ebdea64271578b38f4a6213ae8ea6ceca2e51b27b3f5c91132cc7952841"},
 ]
 django-debug-toolbar = [
     {file = "django-debug-toolbar-3.2.2.tar.gz", hash = "sha256:8c5b13795d4040008ee69ba82dcdd259c49db346cf7d0de6e561a49d191f0860"},

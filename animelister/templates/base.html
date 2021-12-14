@@ -9,11 +9,11 @@
     {% vite_asset 'js/system.ts' %}
     {% vite_asset 'js/main.ts' %}
     {% vite_asset 'js/htmx.js' %}
+    {% vite_asset 'fontawesome/fontawesome.js' %}
 
     {% load django_htmx %}
     {% django_htmx_script %}
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     {% block extra_head %}
     <title>Lightmatter</title>
     {% endblock extra_head %}

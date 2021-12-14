@@ -1,8 +1,0 @@
-<form
-  {% if anime.slug %}hx-post="{% url "anime-update" slug=anime.slug %}"
-  {% else %} hx-post="{% url "anime-create" %}"
-  {% endif %}
-  hx-swap="outerHTML" hx-indicator=".htmx-indicator" hx-push-url="false">
-{{form.as_p}}
-  <input type="submit" value="Update Anime">
-</form>

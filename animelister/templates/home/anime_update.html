@@ -8,7 +8,7 @@
   <section class="section" >
   <h1 class="title">Create or Update an anime</h1>
   {% if form %}
-    {% include "home/partials/anime_form.html" with form=form anime=anime %}
+    {% include "home/components/anime_form.html" with form=form anime=anime %}
     <center>
       <img class="htmx-indicator" src="{% static "img/bars.svg" %}"/>
     </center>
